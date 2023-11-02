@@ -1,1 +1,70 @@
-﻿  ConsoleApplication1.vcxproj -> C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
+﻿  Button.cpp
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(8,26): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(9,27): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(32,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(33,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(40,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(41,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(75,17): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(76,17): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(78,22): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(79,23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(111,32): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Button.cpp(112,33): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  ConsoleApplication1.cpp
+  main.cpp
+  Textbox.cpp
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Textbox.cpp(172,17): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Textbox.cpp(173,17): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Textbox.cpp(175,22): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Textbox.cpp(176,23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating Code...
+  ConsoleApplication1.vcxproj -> C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
