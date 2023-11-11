@@ -5,14 +5,14 @@
 #include "SFML/Graphics.hpp"
 #include "Textbox.h"
 #include "Button.h"
+#include "Settings.h"
 
-class Application
-{
+class Application {
 public:
-    enum class ScreenState
-    {
+    enum class ScreenState {
         MainScreen,
-        OptionsScreen
+        GamePlayScreen,
+        SettingScreen
     };
 public:
     Application();
@@ -26,22 +26,43 @@ private:
     sf::VideoMode videoMode;
     sf::RenderWindow window;
 
-    sf::Texture mainScreenTex;
-    sf::Sprite mainScreen;
+    sf::Texture settingScreenTex;
+    sf::Sprite settingScreen;
 
     sf::Texture screenWithOptionsTex;
     sf::Sprite screenWithOptions;
+
+    sf::Font font;
 
     ScreenState currentScreen;
 
     sf::Event event;
 
-    Button menuButton;
+    Button settingTitle;
+    Button playButton;
+    Button instructionButton;
+    Button settingButton;
+    Button exitButton;
+
+    Button gamePlayTitle;
+    Button continueButton;
+    Button newGameButton;
+    Button backButton;
+
+    //Settings* settings;
 private:
     void initWindow();
     //void initBackground();
-    //void initFont();
-    void initMenuButton();
+    void initFont();
+    void initMainTitle();
+    void initPlayButton();
+    void initInstructionButton();
+    void initSettingButton();
+    void initExitButton();
+    void initGamePlayTitle();
+    void initContinueButton();
+    void initNewGameButton();
+    void initBackButton();
 };
 
 #endif
