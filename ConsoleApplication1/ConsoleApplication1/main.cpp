@@ -1,6 +1,4 @@
 #pragma once
-#include <iostream>
-#include <fstream>
 #include "main.h"
 
 
@@ -16,7 +14,7 @@ Application::Application() :
 	continueButton("Continue", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
 	newGameButton("New game", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
 	backButton("Back", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
-	//settings(nullptr),
+	settings(nullptr),
 	currentScreen(ScreenState::MainScreen)
 {
 	initWindow();
@@ -35,7 +33,7 @@ Application::Application() :
 
 Application::~Application()
 {
-	//delete settings;
+	delete settings;
 }
 
 void Application::initWindow()
@@ -148,7 +146,7 @@ void Application::run()
 {
 	//window.draw(loadingScreen);
 	window.display();
-	//settings = new Settings(window);
+	settings = new Settings(window);
 	while (window.isOpen())
 	{
 		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
@@ -213,16 +211,16 @@ void Application::handleEvent()
 				}
 			}
 		}
-		/*else if (currentScreen == ScreenState::SettingScreen)
+		else if (currentScreen == ScreenState::SettingScreen)
 		{
 			bool endScreen = false;
 			settings->setEndScreen(endScreen);
 			settings->handleEvent(event, window, endScreen);
-			if (!endScreen) {
+			if (endScreen) {
 				settings->setEndScreen(endScreen);
 				currentScreen = ScreenState::MainScreen;
 			}
-		}*/
+		}
 		else
 		{
 
@@ -249,7 +247,7 @@ void Application::update()
 	}
 	else if (currentScreen == ScreenState::SettingScreen)
 	{
-		//settings->update(window);
+		settings->update(window);
 	}
 	else
 	{
@@ -278,7 +276,7 @@ void Application::render()
 	}
 	else if (currentScreen == ScreenState::SettingScreen) {
 		window.clear(sf::Color::White);
-		//settings->render(window);
+		settings->render(window);
 	}
 	else
 	{

@@ -1,11 +1,2 @@
-﻿  main.cpp
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(38,9): error C2065: 'settings': undeclared identifier
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(38,17): error C2541: 'delete': cannot delete objects that are not pointers
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(151,2): error C2065: 'settings': undeclared identifier
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(219,4): error C2065: 'settings': undeclared identifier
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(220,4): error C2065: 'settings': undeclared identifier
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(222,5): error C2065: 'settings': undeclared identifier
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(252,3): error C2065: 'settings': undeclared identifier
-C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\main.cpp(281,3): error C2065: 'settings': undeclared identifier
-  Settings.cpp
-  Generating Code...
+﻿  Settings.cpp
+  ConsoleApplication1.vcxproj -> C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

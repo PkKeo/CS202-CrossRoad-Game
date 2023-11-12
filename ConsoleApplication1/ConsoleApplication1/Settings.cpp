@@ -1,8 +1,7 @@
-#pragma once
 #include "Settings.h"
 
 Settings::Settings(sf::RenderWindow& window) :
-	settingTitle("CROSSY ROAD G2", { 500, 200 }, 50, sf::Color::Green, sf::Color::Black),
+	settingTitle("SETTINGS", { 500, 200 }, 50, sf::Color::Green, sf::Color::Black),
 	backButton("Back", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
 	isEndScreen(false)
 {

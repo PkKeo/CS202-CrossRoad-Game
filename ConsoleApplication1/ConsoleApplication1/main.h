@@ -49,7 +49,7 @@ private:
     Button newGameButton;
     Button backButton;
 
-    //Settings* settings;
+    Settings* settings;
 private:
     void initWindow();
     //void initBackground();

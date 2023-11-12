@@ -1,7 +1,10 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include "main.h"
+#include <iostream>
+#include "SFML/Graphics.hpp"
+#include "Textbox.h"
+#include "Button.h"
 
 class Settings {
 public:
