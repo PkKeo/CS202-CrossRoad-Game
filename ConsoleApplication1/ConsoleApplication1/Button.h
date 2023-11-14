@@ -15,7 +15,7 @@ public:
 
 	void setTextColor(const sf::Color &color);
 
-	void setPosition(const sf::Vector2f &point);
+	virtual void setPosition(const sf::Vector2f &point);
 
 	void setPosition(float x, float y);
 
@@ -27,12 +27,12 @@ public:
 
 	const sf::Vector2f& getSize();
 
-	void drawTo(sf::RenderWindow& window);
+	virtual void drawTo(sf::RenderWindow& window);
 
 	// Check if the mouse is within the bounds of the button:
 	bool isMouseOver(sf::RenderWindow& window);
 
-	void update(sf::RenderWindow& window);
+	virtual void update(sf::RenderWindow& window);
 
 	void setString(std::string text);
 
@@ -45,6 +45,24 @@ private:
 
 	int btnWidth;
 	int btnHeight;
+};
+
+class ButtonCustom : public Button {
+public:
+	ButtonCustom(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor,sf::Texture* normal, sf::Texture* hover) 
+		: Button(btnText, buttonSize, charSize, bgColor, textColor), normal(normal), hover(hover) { buttonImg.setScale({ 0.75, 0.75 }); }
+
+	void setBackgroundAnimation(sf::Texture* normal, sf::Texture* hover);
+
+	void setPosition(const sf::Vector2f& point) override;
+
+	void update(sf::RenderWindow& window) override;
+
+	void drawTo(sf::RenderWindow& window) override;
+
+private:
+	sf::Texture* normal,* hover;
+	sf::Sprite buttonImg;
 };
 
 #endif

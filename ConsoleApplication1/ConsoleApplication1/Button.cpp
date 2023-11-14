@@ -112,3 +112,30 @@ void Button::adjustSizeToContainText()
     btnHeight = button.getSize().y;
     
 }
+
+// ButtonCustom
+
+void ButtonCustom::setBackgroundAnimation(sf::Texture* normal, sf::Texture* hover) {
+    this->normal = normal;
+    this->hover = hover;
+    buttonImg.setTexture(*this->normal);
+}
+
+void ButtonCustom::setPosition(const sf::Vector2f& point) {
+    Button::setPosition(point);
+    buttonImg.setPosition(point);
+}
+
+void ButtonCustom::update(sf::RenderWindow& window)
+{
+    if (isMouseOver(window)) {
+        buttonImg.setTexture(*hover);
+    }
+    else {
+        buttonImg.setTexture(*normal);
+    }
+}
+
+void ButtonCustom::drawTo(sf::RenderWindow& window) {
+    window.draw(buttonImg);
+}

@@ -7,6 +7,9 @@
 #include "Button.h"
 #include "Settings.h"
 
+static const unsigned int SCREEN_HEIGHT = 810;
+static const unsigned int SCREEN_WIDTH = 1440;
+
 class Application {
 public:
     enum class ScreenState {
@@ -26,11 +29,16 @@ private:
     sf::VideoMode videoMode;
     sf::RenderWindow window;
 
-    sf::Texture settingScreenTex;
-    sf::Sprite settingScreen;
+    sf::Texture mainScreenTex;
+    sf::Sprite mainScreen;
 
-    sf::Texture screenWithOptionsTex;
-    sf::Sprite screenWithOptions;
+    sf::Texture exitButtonHoverTex;
+    sf::Texture exitButtonNormTex;
+
+    sf::Sprite exitButtonNorm;
+
+    /*sf::Texture screenWithOptionsTex;
+    sf::Sprite screenWithOptions;*/
 
     sf::Font font;
 
@@ -38,13 +46,12 @@ private:
 
     sf::Event event;
 
-    Button settingTitle;
     Button playButton;
     Button instructionButton;
     Button settingButton;
-    Button exitButton;
+    //Button exitButton;
+    ButtonCustom exitButton;
 
-    Button gamePlayTitle;
     Button continueButton;
     Button newGameButton;
     Button backButton;
@@ -52,14 +59,12 @@ private:
     Settings* settings;
 private:
     void initWindow();
-    //void initBackground();
+    void initBackground();
     void initFont();
-    void initMainTitle();
     void initPlayButton();
     void initInstructionButton();
     void initSettingButton();
     void initExitButton();
-    void initGamePlayTitle();
     void initContinueButton();
     void initNewGameButton();
     void initBackButton();
