@@ -128,6 +128,7 @@ void ButtonCustom::setPosition(const sf::Vector2f& point) {
 
 void ButtonCustom::update(sf::RenderWindow& window)
 {
+    //Button::update(window);
     if (isMouseOver(window)) {
         buttonImg.setTexture(*hover);
     }
@@ -137,5 +138,6 @@ void ButtonCustom::update(sf::RenderWindow& window)
 }
 
 void ButtonCustom::drawTo(sf::RenderWindow& window) {
+    //Button::drawTo(window);
     window.draw(buttonImg);
 }

@@ -32,10 +32,17 @@ private:
     sf::Texture mainScreenTex;
     sf::Sprite mainScreen;
 
+    sf::Texture playButtonHoverTex;
+    sf::Texture playButtonNormTex;
+
+    sf::Texture intButtonHoverTex;
+    sf::Texture intButtonNormTex;
+
+    sf::Texture settingButtonHoverTex;
+    sf::Texture settingButtonNormTex;
+
     sf::Texture exitButtonHoverTex;
     sf::Texture exitButtonNormTex;
-
-    sf::Sprite exitButtonNorm;
 
     /*sf::Texture screenWithOptionsTex;
     sf::Sprite screenWithOptions;*/
@@ -46,10 +53,9 @@ private:
 
     sf::Event event;
 
-    Button playButton;
-    Button instructionButton;
-    Button settingButton;
-    //Button exitButton;
+    ButtonCustom playButton;
+    ButtonCustom instructionButton;
+    ButtonCustom settingButton;
     ButtonCustom exitButton;
 
     Button continueButton;
