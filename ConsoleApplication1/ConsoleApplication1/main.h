@@ -32,20 +32,15 @@ private:
     sf::Texture mainScreenTex;
     sf::Sprite mainScreen;
 
-    sf::Texture playButtonHoverTex;
-    sf::Texture playButtonNormTex;
+    sf::Texture playButtonTex;
 
-    sf::Texture intButtonHoverTex;
-    sf::Texture intButtonNormTex;
+    sf::Texture intButtonTex;
 
-    sf::Texture settingButtonHoverTex;
-    sf::Texture settingButtonNormTex;
+    sf::Texture settingButtonTex;
 
-    sf::Texture exitButtonHoverTex;
-    sf::Texture exitButtonNormTex;
+    sf::Texture exitButtonTex;
 
-    /*sf::Texture screenWithOptionsTex;
-    sf::Sprite screenWithOptions;*/
+    sf::Texture saveButtonTex;
 
     sf::Font font;
 
@@ -61,6 +56,7 @@ private:
     Button continueButton;
     Button newGameButton;
     Button backButton;
+    ButtonCustom saveButton;
 
     Settings* settings;
 private:
@@ -74,6 +70,7 @@ private:
     void initContinueButton();
     void initNewGameButton();
     void initBackButton();
+    void initSaveButton();
 };
 
 #endif

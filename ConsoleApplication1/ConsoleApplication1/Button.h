@@ -49,10 +49,9 @@ private:
 
 class ButtonCustom : public Button {
 public:
-	ButtonCustom(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor,sf::Texture* normal, sf::Texture* hover) 
-		: Button(btnText, buttonSize, charSize, bgColor, textColor), normal(normal), hover(hover) { buttonImg.setScale({ 0.75, 0.75 }); }
+	ButtonCustom(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor, sf::Texture* buttonTex);
 
-	void setBackgroundAnimation(sf::Texture* normal, sf::Texture* hover);
+	void setBackgroundAnimation(sf::Texture* buttonTex);
 
 	void setPosition(const sf::Vector2f& point) override;
 
@@ -61,7 +60,8 @@ public:
 	void drawTo(sf::RenderWindow& window) override;
 
 private:
-	sf::Texture* normal,* hover;
+	sf::Texture* buttonTex;
+	sf::IntRect uvRect;
 	sf::Sprite buttonImg;
 };
 

@@ -5,13 +5,14 @@
 Application::Application() :
 	videoMode(SCREEN_WIDTH, SCREEN_HEIGHT),
 	window(videoMode, "Crossy Road", sf::Style::Close), //don't clear the close style!!
-	playButton("", { 178, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &playButtonNormTex, &playButtonHoverTex),
-	instructionButton("Instruction", { 400, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &intButtonNormTex, &intButtonHoverTex),
-	settingButton("Settings", { 303, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &settingButtonNormTex, &settingButtonHoverTex),
-	exitButton("", { 140, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &exitButtonNormTex, &exitButtonHoverTex),
+	playButton("", { 178, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &playButtonTex),
+	instructionButton("Instruction", { 400, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &intButtonTex),
+	settingButton("Settings", { 303, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &settingButtonTex),
+	exitButton("", { 145, 55 }, 25, sf::Color::Transparent, sf::Color::Transparent, &exitButtonTex),
 	continueButton("Continue", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
 	newGameButton("New game", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
 	backButton("Back", { 200, 70 }, 25, sf::Color::Yellow, sf::Color::Black),
+	saveButton("", { 175, 55 }, 25, sf::Color::Transparent, sf::Color::Black, &saveButtonTex),
 	settings(nullptr),
 	currentScreen(ScreenState::MainScreen)
 {
@@ -25,6 +26,7 @@ Application::Application() :
 	initContinueButton();
 	initNewGameButton();
 	initBackButton();
+	initSaveButton();
 }
 
 Application::~Application()
@@ -44,54 +46,41 @@ void Application::initWindow()
 
 void Application::initBackground()
 {
-	// Load background from file
+	// Load main screen background from file
 	if (!mainScreenTex.loadFromFile("Material/Backgrounds/MainScreen1.png"))
 		std::cout << "MainScreen1 not found!\n";
 	mainScreenTex.setSmooth(true);
 	mainScreen.setTexture(mainScreenTex);
-
-	if (!playButtonHoverTex.loadFromFile("Material/Buttons/Play/Play Button hover.png"))
-		std::cout << "Play Button hover not found!\n";
-	playButtonHoverTex.setSmooth(true);
-	if (!playButtonNormTex.loadFromFile("Material/Buttons/Play/Play Button.png"))
-		std::cout << "Play Button not found!\n";
-	playButtonNormTex.setSmooth(true);
-
-	if (!intButtonHoverTex.loadFromFile("Material/Buttons/Instruction/Instruction Button hover.png"))
-		std::cout << "Play Button hover not found!\n";
-	intButtonHoverTex.setSmooth(true);
-	if (!intButtonNormTex.loadFromFile("Material/Buttons/Instruction/Instruction Button.png"))
-		std::cout << "Play Button not found!\n";
-	intButtonNormTex.setSmooth(true);
-
-	if (!settingButtonHoverTex.loadFromFile("Material/Buttons/Settings/Settings Button hover.png"))
-		std::cout << "Play Button hover not found!\n";
-	settingButtonHoverTex.setSmooth(true);
-	if (!settingButtonNormTex.loadFromFile("Material/Buttons/Settings/Settings Button.png"))
-		std::cout << "Play Button not found!\n";
-	settingButtonNormTex.setSmooth(true);
-
-	if (!exitButtonHoverTex.loadFromFile("Material/Buttons/Exit/Exit Button hover.png"))
-		std::cout << "Exit Button hover not found!\n";
-	exitButtonHoverTex.setSmooth(true);
-	if (!exitButtonNormTex.loadFromFile("Material/Buttons/Exit/Exit Button.png"))
-		std::cout << "Exit Button not found!\n";
-	exitButtonNormTex.setSmooth(true);
-
-	/*if (!screenWithOptionsTex.loadFromFile("background/background2.jpg"))
-		std::cout << "Background2 not found!\n";
-	screenWithOptionsTex.setSmooth(true);
-	screenWithOptions.setTexture(screenWithOptionsTex);*/
-
 	// Scale the background to fit window
 	float scaleX = static_cast<float>(window.getSize().x) / mainScreenTex.getSize().x;
 	float scaleY = static_cast<float>(window.getSize().y) / mainScreenTex.getSize().y;
 	mainScreen.setScale(scaleX, scaleY);
 
+	// Play button
+	if (!playButtonTex.loadFromFile("Material/Buttons/Play/Play Buttons.png"))
+		std::cout << "Play Button hover not found!\n";
+	playButtonTex.setSmooth(true);
 
-	/*scaleX = static_cast<float>(window.getSize().x) / screenWithOptionsTex.getSize().x;
-	scaleY = static_cast<float>(window.getSize().y) / screenWithOptionsTex.getSize().y;
-	screenWithOptions.setScale(scaleX, scaleY);*/
+	// Instruction button
+	if (!intButtonTex.loadFromFile("Material/Buttons/Instruction/Instruction Buttons.png"))
+		std::cout << "Play Button hover not found!\n";
+	intButtonTex.setSmooth(true);
+
+	// Setting button
+	if (!settingButtonTex.loadFromFile("Material/Buttons/Settings/Settings Buttons.png"))
+		std::cout << "Play Button hover not found!\n";
+	settingButtonTex.setSmooth(true);
+
+	// Exit button
+	if (!exitButtonTex.loadFromFile("Material/Buttons/Exit/Exit Buttons.png"))
+		std::cout << "Exit Button hover not found!\n";
+	exitButtonTex.setSmooth(true);
+
+	// Save button
+	if (!saveButtonTex.loadFromFile("Material/Buttons/Save/Save Buttons.png"))
+		std::cout << "Save Button hover not found!\n";
+	saveButtonTex.setSmooth(true);
+
 }
 
 void Application::initFont()
@@ -106,6 +95,7 @@ void Application::initPlayButton()
 	playButton.setFont(font);
 	playButton.setPosition({ 677, 300 });
 	playButton.setOutlineThickness(2);
+	playButton.setBackgroundAnimation(&playButtonTex);
 }
 
 
@@ -114,6 +104,7 @@ void Application::initInstructionButton()
 	instructionButton.setFont(font);
 	instructionButton.setPosition({ 570, 400 });
 	instructionButton.setOutlineThickness(2);
+	instructionButton.setBackgroundAnimation(&intButtonTex);
 }
 
 
@@ -122,6 +113,7 @@ void Application::initSettingButton()
 	settingButton.setFont(font);
 	settingButton.setPosition({ 610, 500 });
 	settingButton.setOutlineThickness(2);
+	settingButton.setBackgroundAnimation(&settingButtonTex);
 }
 
 void Application::initExitButton()
@@ -129,7 +121,15 @@ void Application::initExitButton()
 	exitButton.setFont(font);
 	exitButton.setPosition({ 690, 600 });
 	exitButton.setOutlineThickness(2);
-	exitButton.setBackgroundAnimation(&exitButtonNormTex, &exitButtonHoverTex);
+	exitButton.setBackgroundAnimation(&exitButtonTex);
+}
+
+void Application::initSaveButton()
+{
+	saveButton.setFont(font);
+	saveButton.setPosition({ 690, 600 });
+	saveButton.setOutlineThickness(2);
+	saveButton.setBackgroundAnimation(&saveButtonTex);
 }
 
 void Application::initContinueButton()
@@ -228,7 +228,7 @@ void Application::handleEvent()
 			settings->setEndScreen(endScreen);
 			settings->handleEvent(event, window, endScreen);
 			if (endScreen) {
-				settings->setEndScreen(endScreen);
+				//settings->setEndScreen(endScreen);
 				currentScreen = ScreenState::MainScreen;
 			}
 		}
@@ -269,7 +269,6 @@ void Application::update()
 void Application::render()
 {
 	if (currentScreen == ScreenState::MainScreen) {
-		window.clear(sf::Color::White);
 		window.draw(mainScreen);
 		playButton.drawTo(window);
 		instructionButton.drawTo(window);
@@ -278,13 +277,12 @@ void Application::render()
 	}
 	else if (currentScreen == ScreenState::GamePlayScreen) {
 		window.clear(sf::Color::White);
-		//window.draw(screenWithOptions);
+		//window.draw(settingScreen);
 		continueButton.drawTo(window);
 		newGameButton.drawTo(window);
 		backButton.drawTo(window);
 	}
 	else if (currentScreen == ScreenState::SettingScreen) {
-		window.clear(sf::Color::White);
 		settings->render(window);
 	}
 	else

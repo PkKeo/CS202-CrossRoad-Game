@@ -19,18 +19,21 @@ private:
     sf::Texture settingScreenTex;
     sf::Sprite settingScreen;
 
+    sf::Texture saveButtonTex;
+
+    sf::Texture backButtonTex;
+
     sf::Font font;
 
+    ButtonCustom backButton;
+    ButtonCustom saveButton;
 
-    Button settingTitle;
-    Button backButton;
-
-    bool isEndScreen;
+    bool isEndScreen; // Check if users want to leave the screen
 private:
-    //void initBackground(sf::RenderWindow& window);
+    void initBackground(sf::RenderWindow& window);
     void initFont();
-    void initMainTitle();
     void initBackButton();
+    void initSaveButton();
 };
 
 #endif
