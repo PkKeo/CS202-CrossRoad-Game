@@ -1,22 +1,40 @@
 #include "main.h"
+#include "Character.h"
 
-int main()
+int main() 
 {
-    /*sf::RenderWindow window(sf::VideoMode(800, 600), "Test SFML");
-    sf::Event evnt;
+    //Application game;
+    //game.run();
+    sf::RenderWindow window(sf::VideoMode(512, 512), "Crossy Road", sf::Style::Close);
+    sf::Texture catTex;
+    if (!catTex.loadFromFile("Material/Animations/Cat Animation.png"))
+        std::cout << "Cat Animation not found!\n";
+
+    Character cat(&catTex, sf::Vector2u(8, 3), 0.1f, 100.0f);
+
+    float deltaTime = 0.0f;
+    sf::Clock clock;
+
     while (window.isOpen())
     {
-        while (window.pollEvent(evnt))
+        deltaTime = clock.restart().asSeconds();
+
+        sf::Event event;
+        while (window.pollEvent(event))
         {
-            if (evnt.type == sf::Event::Closed)
+            switch (event.type)
             {
+            case sf::Event::Closed:
                 window.close();
+                break;
             }
         }
-    }*/
+        cat.update(deltaTime);
 
-    Application game;
-    game.run();
+        window.clear();
+        cat.drawTo(window);
+        window.display();
+    }
 
     return 0;
 }

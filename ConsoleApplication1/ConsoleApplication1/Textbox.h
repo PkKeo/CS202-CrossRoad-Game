@@ -1,6 +1,6 @@
 #ifndef TEXTBOX_H
 #define TEXTBOX_h
-
+#pragma once
 #include <iostream>
 #include <sstream>
 #include <SFML/Graphics.hpp>

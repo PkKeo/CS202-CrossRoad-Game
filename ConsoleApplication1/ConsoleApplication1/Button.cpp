@@ -1,6 +1,7 @@
 #include "Button.h"
 
-Button::Button(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor) {
+Button::Button(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor) 
+{
     button.setSize(buttonSize);
     button.setFillColor(bgColor);
 
@@ -13,19 +14,23 @@ Button::Button(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::C
 }
 
 // Pass font by reference:
-void Button::setFont(const sf::Font& font) {
+void Button::setFont(const sf::Font& font) 
+{
     text.setFont(font);
 }
 
-void Button::setBackColor(const sf::Color &color) {
+void Button::setBackColor(const sf::Color &color) 
+{
     button.setFillColor(color);
 }
 
-void Button::setTextColor(const sf::Color &color) {
+void Button::setTextColor(const sf::Color &color) 
+{
     text.setFillColor(color);
 }
 
-void Button::setPosition(const sf::Vector2f &point) {
+void Button::setPosition(const sf::Vector2f &point) 
+{
     button.setPosition(point);
 
     // Center text on button:
@@ -62,13 +67,15 @@ const sf::Vector2f& Button::getSize()
     return button.getSize();
 }
 
-void Button::drawTo(sf::RenderWindow& window) {
+void Button::drawTo(sf::RenderWindow& window) 
+{
     window.draw(button);
     window.draw(text);
 }
 
 // Check if the mouse is within the bounds of the button:
-bool Button::isMouseOver(sf::RenderWindow& window) {
+bool Button::isMouseOver(sf::RenderWindow& window) 
+{
     int mouseX = sf::Mouse::getPosition(window).x;
     int mouseY = sf::Mouse::getPosition(window).y;
 
@@ -111,4 +118,48 @@ void Button::adjustSizeToContainText()
     btnWidth = button.getSize().x;
     btnHeight = button.getSize().y;
     
+}
+
+// ButtonCustom
+
+ButtonCustom::ButtonCustom(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor, sf::Texture* buttonTex)
+    : Button(btnText, buttonSize, charSize, bgColor, textColor), buttonTex(buttonTex)
+{
+
+}
+
+void ButtonCustom::setBackgroundAnimation(sf::Texture* buttonTex) 
+{
+    this->buttonTex = buttonTex;
+    buttonImg.setTexture(*this->buttonTex);
+
+    uvRect.width = this->buttonTex->getSize().x / 2.0f;
+    uvRect.height = this->buttonTex->getSize().y;
+}
+
+void ButtonCustom::setPosition(const sf::Vector2f& point) 
+{
+    Button::setPosition(point);
+    buttonImg.setPosition(point);
+}
+
+void ButtonCustom::update(sf::RenderWindow& window)
+{
+    //Button::update(window);
+    buttonImg.setTexture(*buttonTex);
+    if (isMouseOver(window)) {
+        uvRect.left = uvRect.width;
+        uvRect.top = 0;
+    }
+    else {
+        uvRect.left = 0;
+        uvRect.top = 0;
+    }
+    buttonImg.setTextureRect(uvRect);
+}
+
+void ButtonCustom::drawTo(sf::RenderWindow& window) 
+{
+    //Button::drawTo(window);
+    window.draw(buttonImg);
 }
