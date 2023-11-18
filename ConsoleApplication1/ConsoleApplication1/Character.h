@@ -12,6 +12,9 @@ public:
 	void update(float deltaTime);
 	void drawTo(sf::RenderWindow& window);
 
+	const sf::FloatRect& getBounds();
+	void setPosition(sf::Vector2f coor);
+
 private:
 	sf::RectangleShape body;
 	Animation animation;

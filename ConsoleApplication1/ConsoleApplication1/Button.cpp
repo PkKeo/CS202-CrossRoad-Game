@@ -79,7 +79,7 @@ bool Button::isMouseOver(sf::RenderWindow& window)
     int mouseX = sf::Mouse::getPosition(window).x;
     int mouseY = sf::Mouse::getPosition(window).y;
 
-    int btnPosX = button.getPosition().x;
+    int btnPosX = button.getPosition().x; 
     int btnPosY = button.getPosition().y;
 
     int btnxPosWidth = button.getPosition().x + btnWidth;
@@ -89,6 +89,15 @@ bool Button::isMouseOver(sf::RenderWindow& window)
         return true;
     }
     return false;
+    // This is okay, but the convert from float to int may lead to some error
+    // The getPosition().x return float and then convert to int
+    
+    /* Change
+    if (this->button.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)) {
+        return true;
+    }
+    return false;
+    */
 }
 
 void Button::update(sf::RenderWindow& window)
@@ -132,7 +141,7 @@ void ButtonCustom::setBackgroundAnimation(sf::Texture* buttonTex)
 {
     this->buttonTex = buttonTex;
     buttonImg.setTexture(*this->buttonTex);
-
+    
     uvRect.width = this->buttonTex->getSize().x / 2.0f;
     uvRect.height = this->buttonTex->getSize().y;
 }
@@ -149,7 +158,7 @@ void ButtonCustom::update(sf::RenderWindow& window)
     buttonImg.setTexture(*buttonTex);
     if (isMouseOver(window)) {
         uvRect.left = uvRect.width;
-        uvRect.top = 0;
+        uvRect.top = 0; 
     }
     else {
         uvRect.left = 0;
