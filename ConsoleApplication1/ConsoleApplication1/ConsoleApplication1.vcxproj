@@ -152,6 +152,8 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="obstacle.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Textbox.h" />
   </ItemGroup>

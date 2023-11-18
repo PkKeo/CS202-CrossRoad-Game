@@ -30,7 +30,6 @@ int main()
             }
         }
         cat.update(deltaTime);
-
         window.clear();
         cat.drawTo(window);
         window.display();
