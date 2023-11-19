@@ -3,9 +3,10 @@
 
 int main() 
 {
-    //Application game;
-    //game.run();
-    sf::RenderWindow window(sf::VideoMode(512, 512), "Crossy Road", sf::Style::Close);
+    Application game;
+    game.run();
+
+    /*sf::RenderWindow window(sf::VideoMode(512, 512), "Crossy Road", sf::Style::Close);
     sf::Texture catTex;
     if (!catTex.loadFromFile("Material/Animations/Cat Animation.png"))
         std::cout << "Cat Animation not found!\n";
@@ -33,7 +34,7 @@ int main()
         window.clear();
         cat.drawTo(window);
         window.display();
-    }
+    }*/
 
     return 0;
 }
