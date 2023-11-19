@@ -9,6 +9,7 @@ Character::Character(sf::Texture* texture, sf::Vector2u imgCount, float switchTi
 	body.setSize(sf::Vector2f(100.0f, 150.0f));
 	body.setPosition(sf::Vector2f(200.0f, 200.0f));
 	body.setTexture(texture);
+	body.setOrigin(50.f, 75.f);
 }
 
 Character::~Character()
@@ -48,4 +49,15 @@ void Character::update(float deltaTime)
 void Character::drawTo(sf::RenderWindow& window)
 {
 	window.draw(body);
+}
+
+const sf::FloatRect& Character::getBounds()
+{
+	// TODO: insert return statement here
+	return body.getGlobalBounds();
+}
+
+void Character::setPosition(sf::Vector2f coor)
+{
+	body.setPosition(coor);
 }
