@@ -4,12 +4,11 @@ obstacle::obstacle()
 {}
 obstacle::obstacle(float width, sf::Vector2f speed, sf::Texture* texture)
 {
-   
     rec.setSize(sf::Vector2f(1440, width));
     this->speed = speed;
     rec.setOrigin(1440 / 2, width / 2);
     rec.setTexture(texture);
-   
+    getPic = texture;
 }
 
 float obstacle::getWidth()

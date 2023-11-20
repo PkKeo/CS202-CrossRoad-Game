@@ -23,12 +23,6 @@ public:
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 			movement.x += speed * deltaTime;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			/*if (inside->distaceToPlayer(*this) + inside->getWidth() * 0.5 < body.getPosition().y - speed * deltaTime - body.getSize().y * 0.5)
-			{
-				body.setPosition(body.getPosition().x, inside->getPosition().y + inside->getWidth() - body.getSize().y * 0.5 - 2);
-				moveToOther = 1;
-			}
-			else*/
 			movement.y -= speed * deltaTime;
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 			movement.y += speed * deltaTime;

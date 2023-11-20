@@ -9,10 +9,10 @@ Character::Character(sf::Texture* texture, sf::Vector2u imgCount, float switchTi
 	row(0),
 	faceRight(true)
 {
-	body.setSize(sf::Vector2f(60.0f, 60.0f));
+	body.setSize(sf::Vector2f(80.0f, 80.0f));
 	body.setPosition(sf::Vector2f(200.0f, 200.0f));
 	body.setTexture(texture);
-	body.setOrigin(50.f, 75.f);
+	body.setOrigin(40.f, 40.f);
 }
 
 Character::~Character()
@@ -37,7 +37,7 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 		{
 			inside = listObstacle[i];
 			index = i;
-				break;
+			break;
 		}
 	}
 	//std::cout << index;
@@ -50,12 +50,13 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		if (inside)
 		{
-			if (index + 1 < listObstacle.size() && listObstacle[index + 1]->distaceToPlayer(*this) < 150)
+			if (inside->getPosition().y - body.getPosition().y > 34)
 			{
-				std::cout << "get here\n";
-				body.setPosition(body.getPosition().x, listObstacle[index + 1]->getPosition().y + listObstacle[index + 1]->getWidth() - body.getSize().y * 0.5 - 2);
-				moveToOther = 1;
+				std::cout << "Jump next\n";
+				if (index + 1 < listObstacle.size())
+					body.setPosition(body.getPosition().x, listObstacle[index + 1]->getPosition().y - speed * deltaTime * 2 + 70);
 			}
+			else movement.y -= speed * deltaTime * 2;
 		}
 		else
 		movement.y -= speed * deltaTime * 2;
@@ -75,7 +76,6 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 
 	animation.update(row, deltaTime, faceRight);
 	body.setTextureRect(animation.uvRect);
-	body.setFillColor(sf::Color::Blue);
 	if (moveToOther == 0) {
 		body.move(movement + listObstacle[0]->getSpeed());
 		//body.move(listObstacle[0]->getSpeed());
