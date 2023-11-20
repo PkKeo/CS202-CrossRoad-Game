@@ -1,3 +1,8 @@
-﻿  Character.cpp
-D:\PROJECT CS202\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Character.cpp(93): warning C4172: returning address of local variable or temporary
-  ConsoleApplication1.vcxproj -> D:\PROJECT CS202\CS202-CrossRoad-Game\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
+﻿  GamePlayScreen.cpp
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\GamePlayScreen.cpp(25,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MainScreen.cpp
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\MainScreen.cpp(27,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  SettingScreen.cpp
+C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\SettingScreen.cpp(23,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  ConsoleApplication1.vcxproj -> C:\Users\Admin\source\repos\2ND\CS202-CrossRoad-Game\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

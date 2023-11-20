@@ -1,7 +1,9 @@
 #ifndef SCREEN_H
 #define SCREEN_H
-
+#pragma once
+#include <cstdlib>
 #include <iostream>
+#include <time.h>
 #include <vector>
 #include "SFML/Graphics.hpp"
 #include "Textbox.h"
@@ -9,9 +11,10 @@
 
 
 enum class ScreenState {
-    MainScreen,
-    GamePlayScreen,
-    SettingScreen
+    MainScreen, // 0
+    GamePlayScreen, // 1
+    SettingScreen, // 2
+    InGameScreen // 3
 };
 
 //ANY screen will be inheritance from this abstract base screen.
@@ -32,66 +35,6 @@ protected:
 protected: // my set to protected if need
     sf::Font font;
     bool isEndScreen;
-
-};
-
-class MainScreen : public Screen {
-public:
-    MainScreen(sf::RenderWindow& window);
-    ~MainScreen() {}
-
-    void handleEvent(sf::Event event, sf::RenderWindow& window, ScreenState& currentScreen, bool& endScreen) override;
-    void update(sf::RenderWindow& window) override;
-    void render(sf::RenderWindow& window) override;
-
-private:
-    void initBackground(sf::RenderWindow& window) override;
-    void initPlayButton();
-    void initInstructionButton();
-    void initSettingButton();
-    void initExitButton();
-
-private:
-    sf::Texture mainScreenTex;
-    sf::Sprite mainScreen;
-
-    sf::Texture playButtonTex;
-    ButtonCustom playButton;
-
-    sf::Texture intButtonTex;
-    ButtonCustom instructionButton;
-
-    sf::Texture settingButtonTex;
-    ButtonCustom settingButton;
-
-    sf::Texture exitButtonTex;
-    ButtonCustom exitButton;
-};
-
-class SettingScreen : public Screen {
-public:
-    SettingScreen(sf::RenderWindow& window);
-    ~SettingScreen() {}
-
-public:
-    void handleEvent(sf::Event event, sf::RenderWindow& window, ScreenState& currentScreen, bool& endScreen) override;
-    void update(sf::RenderWindow& window) override;
-    void render(sf::RenderWindow& window) override;
-
-private:
-    void initBackground(sf::RenderWindow& window);
-    void initBackButton();
-    void initSaveButton();
-
-private:
-    sf::Texture settingScreenTex;
-    sf::Sprite settingScreen;
-
-    sf::Texture saveButtonTex;
-    ButtonCustom saveButton;
-
-    sf::Texture backButtonTex;
-    ButtonCustom backButton;
 
 };
 
