@@ -7,9 +7,10 @@
 #include "Textbox.h"
 #include "Button.h"
 
+
 enum class ScreenState {
     MainScreen,
-    //GamePlayScreen,
+    GamePlayScreen,
     SettingScreen
 };
 

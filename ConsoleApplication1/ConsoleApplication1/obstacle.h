@@ -1,18 +1,30 @@
-#pragma once
+#ifndef OBSTACLE_H
+#define OBSTACLE_H
+#include "Character.h"
 #include "SFML/Graphics.hpp"
-class obstacle  //Base of the ANY obstacle: river, road, street.
+
+class Character;
+
+class obstacle 
 {
 public:
-	obstacle(float width, sf::Vector2f speed, sf::Texture* texture);
-	bool charIsInside();
-	bool isCollision();// run the collision affect
-	sf::Vector2f getPosition();
-	void setPosition(sf::Vector2f);
-	void setSpeed();
-	sf::Vector2f getSpeed();
+    obstacle();
+    obstacle(float width, sf::Vector2f speed, sf::Texture* texture);
+
+    float getWidth();
+    bool charIsInside(Character player);
+    //virtual bool isCollision(Character player);
+    sf::Vector2f getPosition();
+    void setPosition(sf::Vector2f pos);
+    void setSpeed(sf::Vector2f v);
+    sf::Vector2f getSpeed();
+    float distaceToPlayer(Character player); // Updated with Character parameter
+    void drawTo(sf::RenderWindow& window);
+
 private:
-	sf::RectangleShape rec;
-	float x; //the width of obstacle, the length is fixed at 1440
-	sf::Texture getPic;
-	sf::Vector2f speed;
+    sf::RectangleShape rec;
+    float width;
+    sf::Texture getPic;
+    sf::Vector2f speed;
 };
+#endif
