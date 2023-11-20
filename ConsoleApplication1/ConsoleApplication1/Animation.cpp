@@ -10,6 +10,9 @@ Animation::Animation(sf::Texture* texture, sf::Vector2u imgCount, float switchTi
 	uvRect.height = texture->getSize().y / float(imgCount.y);
 }
 
+Animation::Animation()
+{}
+
 Animation::~Animation()
 {
 

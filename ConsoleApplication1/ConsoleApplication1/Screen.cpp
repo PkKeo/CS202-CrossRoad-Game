@@ -1,11 +1,13 @@
 #include "Screen.h"
-
+#include "GamePlayScreen.h"
 ScreenControl::ScreenControl(sf::RenderWindow& window)
 {
 	Screen* tmp;
 	tmp = new MainScreen(window);
 	screens.push_back(tmp);
 	tmp = new SettingScreen(window);
+	screens.push_back(tmp);;
+	tmp = new GamePlayScreen(window);
 	screens.push_back(tmp);
 }
 
@@ -25,6 +27,11 @@ Screen* ScreenControl::getScreen(ScreenState state)
 	if (state == ScreenState::SettingScreen)
 	{
 		Screen* tmp = screens[1];
+		return tmp;
+	}
+	if (state == ScreenState::GamePlayScreen)
+	{
+		Screen* tmp = screens[2];
 		return tmp;
 	}
 }
@@ -125,7 +132,10 @@ void MainScreen::handleEvent(sf::Event event, sf::RenderWindow& window, ScreenSt
 	{
 		if (playButton.isMouseOver(window))
 		{
-			//currentScreen = ScreenState::GamePlayScreen;
+			currentScreen = ScreenState::GamePlayScreen;
+			endScreen = true;
+			isEndScreen = endScreen;
+			
 		}
 		else if (instructionButton.isMouseOver(window))
 		{

@@ -1,6 +1,6 @@
 #ifndef BUTTON_H
 #define BUTTON_H
-
+#pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
@@ -64,5 +64,4 @@ private:
 	sf::IntRect uvRect;
 	sf::Sprite buttonImg;
 };
-
 #endif
