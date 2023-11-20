@@ -19,12 +19,16 @@ public:
     void setSpeed(sf::Vector2f v);
     sf::Vector2f getSpeed();
     float distaceToPlayer(Character player); // Updated with Character parameter
+    void setTexture(sf::Texture* t)
+    {
+        rec.setTexture(t);
+    }
     void drawTo(sf::RenderWindow& window);
 
 private:
     sf::RectangleShape rec;
     float width;
-    sf::Texture getPic;
+    sf::Texture *getPic;
     sf::Vector2f speed;
 };
 #endif
