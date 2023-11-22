@@ -27,6 +27,7 @@ public:
 
 private:
     sf::RectangleShape rec;
+    //Animation animation;
     float width;
     sf::Texture *getPic;
     sf::Vector2f speed;

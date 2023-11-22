@@ -11,6 +11,7 @@ public:
  
     Character();
     Character(sf::Texture* texture, sf::Vector2u imgCount, float switchTime, float speed);
+	Character(sf::Texture* texture, sf::Vector2u imgCount, float switchTime, float speed, sf::Vector2f pos);
     ~Character();
 
     sf::Vector2f getSize();

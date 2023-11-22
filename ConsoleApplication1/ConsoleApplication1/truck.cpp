@@ -14,3 +14,24 @@ void truck::setPosition(sf::Vector2f pos )
     car.setPosition(pos);
 }
 
+bool truck::isCollision(Character player)
+{
+    if (this->car.getGlobalBounds().intersects(player.getBounds())) {
+        return true;
+    }
+    return false;
+}
+
+void truck::update(float deltaTime, bool faceRight)
+{
+    animation.update(row, deltaTime, faceRight);
+    car.setTextureRect(animation.uvRect);
+    car.move(carSpeed + obstacle::getSpeed().x,carSpeed + obstacle::getSpeed().y);
+}
+
+void truck::drawTo(sf::RenderTarget& target)
+{
+    target.draw(car);
+}
+
+

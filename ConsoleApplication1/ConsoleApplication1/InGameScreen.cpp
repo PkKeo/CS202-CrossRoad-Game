@@ -24,7 +24,7 @@ InGameScreen::InGameScreen(sf::RenderWindow& window) :
 	t = new sf::Texture;
 	if (!t -> loadFromFile("Material/Animations/Cat.png"))
 		std::cout << "Cat Animation not found!\n";
-	Character cat(t, sf::Vector2u(8, 3), 0.1f, 100.0f);
+	Character cat(t, sf::Vector2u(8, 3), 0.1f, 100.0f,listObstacle[0]->getPosition());
 	player = cat;
 
 }

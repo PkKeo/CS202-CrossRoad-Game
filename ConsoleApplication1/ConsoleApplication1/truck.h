@@ -8,7 +8,10 @@ public:
 	truck(float OBSwidth, sf::Vector2f OBSspeed, sf::Texture *OBStext, sf::Vector2f sizeTruck, sf::Texture* truckPic,
 		sf::Vector2u imgCount, float switchTime, float speed);
 	void setPosition(sf::Vector2f pos);// for the truck
-//	bool isCollision(Character player) override;
+	//bool isCollision(Character player) override;
+	bool isCollision(Character player);
+	void update(float deltaTime,bool faceRight);
+	void drawTo(sf::RenderTarget& target);
 private:
 	sf::RectangleShape car;
 	Animation animation;
