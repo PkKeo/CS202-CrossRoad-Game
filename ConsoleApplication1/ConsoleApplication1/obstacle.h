@@ -15,7 +15,7 @@ public:
     bool charIsInside(Character player);
     //virtual bool isCollision(Character player);
     sf::Vector2f getPosition();
-    void setPosition(sf::Vector2f pos);
+    virtual void setPosition(sf::Vector2f pos);
     void setSpeed(sf::Vector2f v);
     sf::Vector2f getSpeed();
     float distaceToPlayer(Character player); // Updated with Character parameter
@@ -23,10 +23,12 @@ public:
     {
         rec.setTexture(t);
     }
-    void drawTo(sf::RenderWindow& window);
-
+    virtual void drawTo(sf::RenderWindow& window);
+    sf::RectangleShape getShape();
+    virtual void update();
 private:
     sf::RectangleShape rec;
+
     float width;
     sf::Texture *getPic;
     sf::Vector2f speed;
