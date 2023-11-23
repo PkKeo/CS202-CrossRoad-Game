@@ -65,7 +65,7 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 		{
 			if (inside->getPosition().y - body.getPosition().y > 34)
 			{
-				std::cout << "Jump next\n";
+				//std::cout << "Jump next\n";
 				if (index + 1 < listObstacle.size())
 					body.setPosition(body.getPosition().x, listObstacle[index + 1]->getPosition().y - speed * deltaTime * 2 + 70);
 			}
@@ -78,7 +78,7 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 		{
 			if (body.getPosition().y - inside->getPosition().y  > 34)
 			{
-				std::cout << "Jump previous\n";
+				//std::cout << "Jump previous\n";
 				if (index - 1 >= 0)
 					body.setPosition(body.getPosition().x, listObstacle[index - 1]->getPosition().y + speed * deltaTime * 2 - 70);
 			}
@@ -88,10 +88,10 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 		movement.y += speed * deltaTime * 2;
 
 	if (!movement.x && !movement.y)
-		row = 1;
+		row = 0;
 	else
 	{
-		row = 2;
+		row = 0;
 		if (movement.x > 0.0f)
 			faceRight = true;
 		else

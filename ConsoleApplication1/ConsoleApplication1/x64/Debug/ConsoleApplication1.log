@@ -1,15 +1,4 @@
-﻿  Character.cpp
-  ConsoleApplication1.cpp
-  InGameScreen.cpp
-C:\Users\DELL\Documents\Code\Universe\Y2-T1\Programming System\Group Project\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\InGameScreen.cpp(14,56): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-  Screen.cpp
-  obstacle.cpp
+﻿  InGameScreen.cpp
   truck.cpp
   Generating Code...
-C:\Users\DELL\Documents\Code\Universe\Y2-T1\Programming System\Group Project\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Screen.cpp(38): warning C4715: 'ScreenControl::getScreen': not all control paths return a value
-C:\Users\DELL\Documents\Code\Universe\Y2-T1\Programming System\Group Project\CS202-CrossRoad-Game\ConsoleApplication1\ConsoleApplication1\Character.cpp(115): warning C4172: returning address of local variable or temporary
   ConsoleApplication1.vcxproj -> C:\Users\DELL\Documents\Code\Universe\Y2-T1\Programming System\Group Project\CS202-CrossRoad-Game\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
