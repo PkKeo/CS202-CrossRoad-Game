@@ -4,6 +4,8 @@
 #include <iostream>
 #include "SFML/Graphics.hpp"
 #include "Screen.h"
+#include "Character.h"
+#include "obstacle.h"
 
 static const unsigned int SCREEN_HEIGHT = 810;
 static const unsigned int SCREEN_WIDTH = 1440;

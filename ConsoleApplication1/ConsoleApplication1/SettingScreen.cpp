@@ -59,7 +59,7 @@ void SettingScreen::initSaveButton()
 
 void SettingScreen::handleEvent(sf::Event event, sf::RenderWindow& window, ScreenState& currentScreen, bool& endScreen)
 {
-	if (event.type == sf::Event::MouseButtonPressed)
+	if (event.type == sf::Event::MouseButtonReleased)
 	{
 		if (backButton.isMouseOver(window))
 		{

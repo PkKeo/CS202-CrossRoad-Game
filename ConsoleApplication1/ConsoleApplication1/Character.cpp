@@ -64,10 +64,14 @@ void Character::update(float deltaTime, std::vector <obstacle*> listObstacle)
 		movement.y += speed * deltaTime * 2;
 
 	if (!movement.x && !movement.y)
-		row = 1;
+		row = 0;
+	else if (!movement.x && movement.y > 0.f)
+		row = 2;
+	else if (!movement.x && movement.y < 0.f)
+		row = 3;
 	else
 	{
-		row = 2;
+		row = 1;
 		if (movement.x > 0.0f)
 			faceRight = true;
 		else

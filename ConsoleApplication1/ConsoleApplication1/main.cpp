@@ -45,6 +45,7 @@ void Application::run()
 
 void Application::handleEvent()
 {
+	curScreen = screenCtrl.getScreen(curScreenState);
 	//Event Loop:
 	while (window.pollEvent(event))
 	{
@@ -54,10 +55,14 @@ void Application::handleEvent()
 		}
 		else
 		{
-			curScreen = screenCtrl.getScreen(curScreenState);
+			//curScreen = screenCtrl.getScreen(curScreenState);
 			bool endScreen = false;
 			curScreen->setEndScreen(endScreen);
 			curScreen->handleEvent(event, window, curScreenState, endScreen);
+			if (endScreen) {
+				curScreen = screenCtrl.getScreen(curScreenState);
+				curScreen->setEndScreen(false);
+			}
 		}
 	}
 }

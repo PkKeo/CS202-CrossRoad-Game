@@ -9,11 +9,11 @@ public:
 	Button(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor);
 
 	// Pass font by reference:
-	void setFont(const sf::Font& font);
+	virtual void setFont(const sf::Font& font);
 
 	void setBackColor(const sf::Color &color);
 
-	void setTextColor(const sf::Color &color);
+	virtual void setTextColor(const sf::Color &color);
 
 	virtual void setPosition(const sf::Vector2f &point);
 
@@ -39,12 +39,14 @@ public:
 	void setStyle(sf::Uint32 style);
 
 	void adjustSizeToContainText();
+
+protected:
+	int btnWidth;
+	int btnHeight;
+
 private:
 	sf::Text text;
 	sf::RectangleShape button;
-
-	int btnWidth;
-	int btnHeight;
 };
 
 class ButtonCustom : public Button {
@@ -64,4 +66,40 @@ private:
 	sf::IntRect uvRect;
 	sf::Sprite buttonImg;
 };
+
+class AccountButton : public ButtonCustom {
+public:
+	AccountButton(std::string btnText, sf::Vector2f buttonSize, int charSize, sf::Color bgColor, sf::Color textColor, sf::Texture* buttonTex, std::string score);
+
+	void setPosition(const sf::Vector2f& point) override;
+
+	void update(sf::RenderWindow& window) override;
+
+	void drawTo(sf::RenderWindow& window) override;
+
+	void setFont(const sf::Font& font) override;
+
+	void setTextColor(const sf::Color& color) override;
+
+	void setScoreString(std::string score);
+
+private:
+	void initBackground();
+	void initScore(std::string score, int charSize, sf::Color textColor);
+	void initRemoveButton();
+	void initStarShape(sf::Vector2f buttonSize);
+private:
+	//std::string name;
+	//std::string score;
+	//sf::Texture* buttonTex;
+
+	sf::Text score;
+
+	sf::Texture starTex;
+	sf::RectangleShape star;
+
+	sf::Texture removeTex;
+	ButtonCustom remove;
+};
+
 #endif

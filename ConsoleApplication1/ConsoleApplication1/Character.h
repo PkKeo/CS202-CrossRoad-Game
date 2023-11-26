@@ -28,10 +28,14 @@ public:
 			movement.y += speed * deltaTime;
 
 		if (!movement.x && !movement.y)
-			row = 1;
+			row = 0;
+		else if (!movement.x && movement.y > 0.f)
+			row = 2;
+		else if (!movement.x && movement.y < 0.f)
+			row = 3;
 		else
 		{
-			row = 2;
+			row = 1;
 			if (movement.x > 0.0f)
 				faceRight = true;
 			else
