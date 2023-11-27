@@ -12,6 +12,8 @@ MainScreen::MainScreen(sf::RenderWindow& window) :
 	initInstructionButton();
 	initSettingButton();
 	initExitButton();
+	// Limit number of frame per second
+	window.setFramerateLimit(144);
 }
 
 void MainScreen::initBackground(sf::RenderWindow& window)
